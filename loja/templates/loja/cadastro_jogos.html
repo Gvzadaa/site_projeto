@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Jogo</title>
+    <link rel="stylesheet" href="{% static 'loja/style.css' %}">
+</head>
+<body>
+    <h1>Cadastrar Jogo</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+    <a href="{% url 'index' %}">← Voltar</a>
+</body>
+</html>

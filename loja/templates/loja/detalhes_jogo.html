@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ jogo.nome }}</title>
+  <link rel="stylesheet" href="{% static 'loja/style.css' %}">
+</head>
+<body>
+  <header>
+    <a href="{% url 'index' %}">
+      <img src="{% static 'loja/imagens/logogvstore.png' %}" alt="Logo" class="logo">
+    </a>
+  </header>
+
+  <div class="jogo-detalhes">
+    <img src="{{ jogo.imagem.url }}" alt="{{ jogo.nome }}" class="jogo-img">
+    <div class="jogo-info">
+      <h1>{{ jogo.nome }}</h1>
+      <p>{{ jogo.descricao }}</p>
+      <a href="{% url 'index' %}" class="btn-voltar">← Voltar para a loja</a>
+    </div>
+  </div>
+  
+</body>
+</html>

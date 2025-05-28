@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>GV Store</title>
+    <link rel="stylesheet" href="{% static 'loja/style.css' %}">
+</head>
+<body>
+
+<header>
+    <a href="{% url 'index' %}">
+        <img src="{% static 'loja/imagens/logogvstore.png' %}" class="logo" alt="GV Store Logo">
+    </a>
+</header>
+
+<!-- NOVO: Barra de pesquisa centralizada abaixo da logo -->
+<div class="search-wrapper">
+    <form method="get" class="search-form">
+        <input type="text" name="busca" placeholder="Buscar jogo..." value="{{ busca }}">
+        <button type="submit" class="search-button">🔍</button>
+    </form>
+</div>
+
+<!-- Conteúdo principal -->
+<main class="main-content">
+    <h1>Jogos Clássicos</h1>
+
+    <div class="carrossel-container">
+        <!-- Botão esquerdo -->
+        <button class="carrossel-btn left" onclick="scrollCarousel(-1)">
+            <svg width="24" height="24" fill="#00bfff" viewBox="0 0 24 24">
+                <path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6z"/>
+            </svg>
+        </button>
+
+        <!-- Lista de jogos -->
+        <div class="carrossel" id="carrossel-jogos">
+            {% for jogo in jogos_dinamicos %}
+                <div class="jogo-card">
+                    <a href="{% url 'detalhes_jogo' jogo.id %}">
+                        <img src="{{ jogo.imagem.url }}" alt="{{ jogo.nome }}">
+                        <h3>{{ jogo.nome }}</h3>
+                    </a>
+                </div>
+            {% empty %}
+                <p style="color: white;">Nenhum jogo encontrado.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Botão direito -->
+        <button class="carrossel-btn right" onclick="scrollCarousel(1)">
+            <svg width="24" height="24" fill="#00bfff" viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+            </svg>
+        </button>
+    </div>
+</main>
+
+<script>
+function scrollCarousel(direction) {
+    const carrossel = document.getElementById('carrossel-jogos');
+    const scrollAmount = 300;
+    carrossel.scrollBy({
+        left: scrollAmount * direction,
+        behavior: 'smooth'
+    });
+}
+</script>
+
+</body>
+</html>
