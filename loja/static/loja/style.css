@@ -17,14 +17,13 @@ header {
   height: 80px;
 }
 
-/* NOVO: Wrapper da barra de pesquisa centralizada */
+/* Barra de pesquisa centralizada */
 .search-wrapper {
   display: flex;
   justify-content: center;
   margin: 20px 0;
 }
 
-/* Barra de pesquisa */
 .search-form {
   display: flex;
   align-items: center;
@@ -57,7 +56,6 @@ header {
   background-color: #4b08a0;
 }
 
-/* Conteúdo principal */
 .main-content {
   display: flex;
   flex-direction: column;
@@ -140,15 +138,34 @@ a {
   display: block;
 }
 
+/* Jogo não encontrado */
+.carrossel-vazio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 366px;
+  width: 100%;
+}
+
+.jogo-nao-encontrado {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Página de detalhes do jogo */
 .jogo-detalhes {
   display: flex;
+  flex-direction: row; /* lado a lado */
   align-items: flex-start;
+  justify-content: center;
   gap: 40px;
   padding: 40px;
   background-color: #1a1a1a;
   border-radius: 10px;
   max-width: 1000px;
   margin: 40px auto;
+  flex-wrap: nowrap;
 }
 
 .jogo-img {

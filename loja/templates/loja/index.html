@@ -14,7 +14,7 @@
     </a>
 </header>
 
-<!-- NOVO: Barra de pesquisa centralizada abaixo da logo -->
+<!-- Barra de pesquisa centralizada abaixo da logo -->
 <div class="search-wrapper">
     <form method="get" class="search-form">
         <input type="text" name="busca" placeholder="Buscar jogo..." value="{{ busca }}">
@@ -22,7 +22,6 @@
     </form>
 </div>
 
-<!-- Conteúdo principal -->
 <main class="main-content">
     <h1>Jogos Clássicos</h1>
 
@@ -44,7 +43,9 @@
                     </a>
                 </div>
             {% empty %}
-                <p style="color: white;">Nenhum jogo encontrado.</p>
+                <div class="carrossel-vazio">
+                    <p class="jogo-nao-encontrado">Nenhum jogo encontrado.</p>
+                </div>
             {% endfor %}
         </div>
 
